@@ -1,5 +1,4 @@
-
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'employee',
+    'administration',
 
     'crispy_forms',
 ]
@@ -126,3 +126,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'password_change'
+
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+
+]
