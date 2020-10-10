@@ -1,0 +1,54 @@
+{% extends 'backend/base.html' %}
+
+{% block content %}
+<div class="div">
+    <a href="{% url 'employee-list-pdf_page' %}" class="btn btn-primary">Export-pdf</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+         <!--    Hover Rows  -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Employee List
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Designation</th>
+                                <th>Title</th>
+                                <th>Zone</th>
+                                <th>Branch</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for employee in employees %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ employee.employee_id }}</td>
+                                <td>{{ employee.name }}</td>
+                                <td><a href="{% url 'filter-of-designation' employee.employee_designation %}">{{ employee.employee_designation.designation }}</a></td>
+                                <td>{{ employee.title.title }}</td>
+                                <td><a href="{% url 'filter-of-zone' employee.zone %}">{{ employee.zone.zone }}</a></td>
+                                <td><a href="{% url 'filter-of-branch' employee.branch %}">{{ employee.branch }}</a></td>
+                                <td>
+                                    <a href="{% url 'delete-employee' employee.id %}" class="btn btn-danger">Delete</a>
+                                    <a href="{% url 'update-employee' employee.id %}" class="btn btn-primary">Update</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- End  Hover Rows  -->
+    </div>
+</div>
+
+{% endblock %}

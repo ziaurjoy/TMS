@@ -1,0 +1,46 @@
+{% extends 'backend/pdf_pages/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+         <!--    Hover Rows  -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Employee List
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Designation</th>
+                                <th>Title</th>
+                                <th>Zone</th>
+                                <th>Branch</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for employee in employees %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ employee.employee_id }}</td>
+                                <td>{{ employee.name }}</td>
+                                <td>{{ employee.employee_designation.designation }}</td>
+                                <td>{{ employee.title.title }}</td>
+                                <td>{{ employee.zone.zone }}</td>
+                                <td>{{ employee.branch }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- End  Hover Rows  -->
+    </div>
+</div>
+
+{% endblock %}

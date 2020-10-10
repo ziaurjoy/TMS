@@ -1,0 +1,39 @@
+{% extends 'backend/pdf_pages/base.html' %}
+{% block title %} List of Zone {% endblock %}
+{% block content %}
+
+
+
+<div class="row">
+    <div class="col-md-10">
+         <!--    Hover Rows  -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Zone List
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Zone Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for zone in zones %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ zone.zone }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- End  Hover Rows  -->
+    </div>
+</div>
+
+{% endblock %}

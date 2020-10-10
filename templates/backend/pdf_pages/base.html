@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+         table,tr,td, th{
+         border: 1px solid;
+         border-collapse:collapse;
+         text-align: center;
+         padding:10px;
+         }
+        @page{
+         size: "A4";
+         margin: 2.5cm 1.5cm 3.5cm 1.5cm;
+
+         @top-center{
+         content: "Islamic Bank Information";
+         }
+         @bottom-right{
+             content: "Page " counter(page) "of " counter(pages);
+         }
+        }
+    </style>
+</head>
+<body>
+
+{% block content %}
+{% endblock %}
+
+
+</body>
+</html>
