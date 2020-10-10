@@ -1,0 +1,28 @@
+{% extends 'backend/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-7">
+        <!-- Form Elements -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Basic Form Elements
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                         <form action="" method="post">
+                             {% csrf_token %}
+                        {{ form|crispy }}
+                             <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- End Form Elements -->
+    </div>
+</div>
+
+{% endblock %}

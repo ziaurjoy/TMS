@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'employee',
     'administration',
+    'convert_pdf',
 
     'crispy_forms',
 ]

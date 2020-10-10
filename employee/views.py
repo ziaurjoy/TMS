@@ -7,6 +7,8 @@ from employee.forms import CreateEmployeeForm, UserLoginForm, MyPasswordChangeFo
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from employee.models import EmployeeInfo
+
 
 def user_login(request):
     forms = UserLoginForm()
@@ -19,7 +21,7 @@ def user_login(request):
             )
             if user:
                 login(request,user)
-                return redirect('password-reset')
+                return redirect('password-change')
     context = {'form': forms}
     return render(request,'registration/login.html',context)
 
@@ -54,6 +56,13 @@ def create_employee(request):
 
     context = {"form": form}
     return render(request, 'registration/employee_create.html', context)
+
+
+def user_information(request):
+    users = User.objects.get(pk=request.user.id)
+    employees = EmployeeInfo.objects.filter(users=users)
+    context = {'users': employees}
+    return render(request,'registration/user_information.html',context)
 
 
 

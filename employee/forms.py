@@ -30,7 +30,7 @@ class UserLoginForm(forms.Form):
 class CreateEmployeeForm(forms.ModelForm):
     class Meta:
         model = EmployeeInfo
-        fields = 'employee_id','name','employee_designation','title','branch'
+        fields = 'employee_id','name','employee_designation','title','zone','branch'
 
 
 
